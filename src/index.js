@@ -9,6 +9,7 @@ import { error } from '@pnotify/core';
 const refs = {
   cardContainer: document.querySelector('.js-cardLand'),
   searchForm: document.querySelector('.js-searchForm'),
+  inputSearch: document.querySelector('.form-input'),
 };
 
 const renderCountryList = lands => {
@@ -39,6 +40,7 @@ function landSearch(event) {
 function landSucces(data) {
   if (data.length === 1) {
     renderCountryCard(data);
+    refs.inputSearch.value = "";
     return;
   }
   if (data.length >= 2 && data.length <= 10) {
